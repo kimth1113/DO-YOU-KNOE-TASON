@@ -1,65 +1,278 @@
-import Image from "next/image";
+import ThemeToggle from "@/components/ThemeToggle";
+import Link from "next/link";
+
+const techStack = {
+  Frontend: ["React", "Next.js", "Electron", "Tailwind CSS"],
+  Backend: ["NestJS", "FastAPI", "Node.js"],
+  "AI / ML": ["LangChain", "LangGraph", "Langfuse"],
+  Infra: ["AWS", "GCP", "Kubernetes", "Cloudflare", "Jenkins", "Grafana"],
+  Database: ["MongoDB", "Supabase", "PostgreSQL", "Redis"],
+  Languages: ["C/C++"],
+};
+
+const experiences = [
+  {
+    year: "2026",
+    title: "desk of einstein",
+    role: "Co-founder",
+    description:
+      "Building an infinite whiteboard-based workspace where all your thinking — tabs, AI chats, notes — lives in one spatial canvas.",
+    href: "/experience/doe",
+  },
+  {
+    year: "2025",
+    title: "mefriend.ai",
+    role: "Co-founder",
+    description:
+      "YouTube of AI Characters — a UGC platform where anyone can create, share, and talk to AI personas. 300K+ users in 5 months.",
+    href: "/experience/mefriend",
+  },
+  {
+    year: "2024",
+    title: "naly.ai",
+    role: "Co-founder",
+    description:
+      "An AI companion speaker with a ferrofluid-based living interface. Custom hardware with Qualcomm QCS405, embedded Linux, on-device inference.",
+    href: "/experience/naly",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main className="min-h-screen">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--background)]/80 border-b border-[var(--border)]">
+        <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+          <span className="font-semibold text-sm tracking-tight">BSK</span>
+          <div className="flex items-center gap-6">
+            <a href="#about" className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
+              About
+            </a>
+            <a href="#experience" className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
+              Work
+            </a>
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="mailto:matthewkim20122012@gmail.com"
+              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              Resume
+            </a>
+            <ThemeToggle />
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+                  B
+                </div>
+                <div>
+                  <h1 className="text-lg font-semibold">BeomSeok Kim</h1>
+                  <p className="text-sm text-[var(--muted)]">Founder & Lead Engineer</p>
+                </div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight mt-6 mb-4">
+                Building{" "}
+                <span className="text-[var(--accent)]">doe</span> &{" "}
+                <span className="text-[var(--accent)]">mefriend</span>
+              </h2>
+              <p className="text-[var(--muted)] text-lg leading-relaxed max-w-xl mb-8">
+                Full-stack engineer and entrepreneur building scalable systems,
+                real-time distributed architectures, and AI-powered experiences.
+              </p>
+              <div className="flex items-center gap-4">
+                <a
+                  href="#experience"
+                  className="px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+                >
+                  View Work
+                </a>
+                <a
+                  href="mailto:matthewkim20122012@gmail.com"
+                  className="px-5 py-2.5 border border-[var(--border)] rounded-lg text-sm font-medium hover:bg-[var(--card)] transition-colors"
+                >
+                  Get in Touch
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-[var(--border)]">
+            <div>
+              <p className="text-2xl md:text-3xl font-bold">$350K+</p>
+              <p className="text-sm text-[var(--muted)] mt-1">Funding</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-bold">300K+</p>
+              <p className="text-sm text-[var(--muted)] mt-1">Users</p>
+            </div>
+            <div>
+              <p className="text-2xl md:text-3xl font-bold">3</p>
+              <p className="text-sm text-[var(--muted)] mt-1">Ventures</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-8">
+            About
+          </h3>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <p className="text-[var(--muted)] leading-relaxed">
+                I&apos;m a full-stack engineer and serial entrepreneur based in Seoul, Korea.
+                Currently building <strong className="text-[var(--foreground)]">desk of einstein</strong> — a spatial workspace for messy minds,
+                and scaling <strong className="text-[var(--foreground)]">mefriend.ai</strong> — an AI character platform with 300K+ global users.
+              </p>
+              <p className="text-[var(--muted)] leading-relaxed mt-4">
+                Previously, I built <strong className="text-[var(--foreground)]">naly.ai</strong>, an AI companion speaker
+                with custom hardware, before pivoting to software to ship faster.
+              </p>
+            </div>
+            <div>
+              <p className="text-[var(--muted)] leading-relaxed">
+                I care about shipping fast, building systems that scale,
+                and creating products that people actually want to use.
+                From custom PCBs to distributed backends to AI agents — I go deep wherever the problem leads.
+              </p>
+              <div className="mt-6 space-y-2">
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-[var(--muted)]">Location</span>
+                  <span>Seoul, Korea</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-[var(--muted)]">Education</span>
+                  <span>Sungkyunkwan Univ. — B.S. EE (4.29/4.5)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Arsenal / Tech Stack Section */}
+      <section className="py-20 px-6 bg-[var(--card)]">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-8">
+            My Arsenal
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            {Object.entries(techStack).map(([category, techs]) => (
+              <div key={category}>
+                <h4 className="text-sm font-semibold mb-3">{category}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {techs.map((tech) => (
+                    <span key={tech} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-12">
+            Selected Work
+          </h3>
+          <div className="space-y-0">
+            {experiences.map((exp, i) => (
+              <Link
+                key={i}
+                href={exp.href}
+                className="group block border-t border-[var(--border)] py-8 hover:bg-[var(--card)] -mx-6 px-6 transition-colors"
+              >
+                <div className="flex flex-col md:flex-row md:items-start gap-4">
+                  <span className="text-sm text-[var(--muted)] font-mono md:w-20 shrink-0">
+                    {exp.year}
+                  </span>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h4 className="text-lg font-semibold group-hover:text-[var(--accent)] transition-colors">
+                        {exp.title}
+                      </h4>
+                      <span className="text-xs text-[var(--muted)] border border-[var(--border)] px-2 py-0.5 rounded">
+                        {exp.role}
+                      </span>
+                    </div>
+                    <p className="text-[var(--muted)] text-sm leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
+                  <svg
+                    className="w-5 h-5 text-[var(--muted)] group-hover:text-[var(--foreground)] group-hover:translate-x-1 transition-all shrink-0 mt-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+            <div className="border-t border-[var(--border)]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-20 px-6 bg-[var(--card)]">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-8">
+            Education
+          </h3>
+          <div>
+            <h4 className="text-lg font-semibold">Sungkyunkwan University</h4>
+            <p className="text-[var(--muted)] text-sm mt-1">
+              B.S. Electronic & Electrical Engineering
+            </p>
+            <p className="text-sm mt-1">GPA: 4.29 / 4.5</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact / Footer */}
+      <footer className="py-20 px-6 border-t border-[var(--border)]">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)] mb-8">
+            Contact
+          </h3>
+          <div className="flex flex-col md:flex-row gap-8">
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="mailto:matthewkim20122012@gmail.com"
+              className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors text-sm"
             >
-              Learning
-            </a>{" "}
-            center.
+              matthewkim20122012@gmail.com
+            </a>
+            <a
+              href="https://github.com/matt1398"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors text-sm"
+            >
+              GitHub
+            </a>
+            <span className="text-[var(--muted)] text-sm">010-5341-1441</span>
+          </div>
+          <p className="text-xs text-[var(--muted)] mt-12">
+            Seoul, Korea
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </footer>
+    </main>
   );
 }

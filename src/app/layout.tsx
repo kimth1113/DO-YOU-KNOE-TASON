@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BeomSeok Kim - Founder & Lead Engineer",
+  title: "김태현 | Full-Stack Developer",
   description:
-    "Full-stack engineer and entrepreneur building scalable systems, real-time distributed architectures, and AI-powered experiences.",
+    "React, Next.js, Django, Flask 기반 풀스택 개발자. AI/ML 서비스 및 모바일 앱 개발 경험.",
 };
 
 export default function RootLayout({
